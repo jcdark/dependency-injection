@@ -1,12 +1,33 @@
 parameters:
-    # ...
-    mailer.transport: sendmail
+    exercicio1.order.class: "Vox\Treinamento\Exercicio1\Order"
+    exercicio1.chantily.class: "Vox\Treinamento\Exercicio1\\Products\Flavors\Chantily"
+    exercicio1.express.class: "Vox\Treinamento\Exercicio1\\Products\Flavors\Express"
+    exercicio1.chocolate.class: "Vox\Treinamento\Exercicio1\\Products\Flavors\Chocolate"
+    exercicio1.coffee.class: "Vox\Treinamento\Exercicio1\\Products\Coffee"
+    exercicio1.order_printer.class: "Vox\Treinamento\Exercicio1\\OrderPrinter"
+    exercicio1.chantily.price: 12
 
 services:
     teste:
         class:     "Vox\Treinamento\DependencyInjection\Teste"
 
-    teste_manager:
-        class:     "Vox\Treinamento\DependencyInjection\TesteManager"
-        arguments: ["@teste"]
+    exercicio1.order:
+        class: "%exercicio1.order.class%"
         
+    exercicio1.chantily:
+        class: "%exercicio1.chantily.class%"
+        arguments: ["%exercicio1.chantily.price%"]
+    
+    exercicio1.express:
+        class: "%exercicio1.express.class%"
+
+    exercicio1.chocolate:
+        class: "%exercicio1.chocolate.class%"
+
+    exercicio1.coffee:
+        class: "%exercicio1.coffee.class%"
+        
+    exercicio1.order_printer:
+        class: "%exercicio1.order_printer.class%"
+        tags: 
+            - {name: exercicio1.order.listener }        
