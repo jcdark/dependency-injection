@@ -15,9 +15,11 @@
     "require": {
         "symfony/dependency-injection": "~2.5",
         "symfony/yaml": "~2.5",
+        "symfony/event-dispatcher": "~2.5",
         "symfony/config": "~2.5",
         "symfony/debug": "~2.5",
         "ocramius/proxy-manager": "~0.5",
-        "symfony/proxy-manager-bridge": "~2.5"
+        "symfony/proxy-manager-bridge": "~2.5",
+        "easyframework/collections": "~3.1"
     }
 }
